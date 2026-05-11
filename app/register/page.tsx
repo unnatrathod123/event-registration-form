@@ -44,7 +44,7 @@ export default function EventRegisterPage() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await fetch("http://127.0.0.1:8000/api/events", {
+        const res = await fetch("https://techstrota.tech/api/events", {
           headers: { 'Accept': 'application/json' }
         });
         if (!res.ok) throw new Error("Failed to load events");
@@ -82,7 +82,7 @@ export default function EventRegisterPage() {
     
     setLoading(true);
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/event/register-multiple", {
+      const res = await fetch("https://techstrota.tech/api/event/register-multiple", {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
         body: JSON.stringify(form),
