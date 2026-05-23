@@ -18,7 +18,6 @@ interface FormState {
   phone: string;
   institution: string;
   event_ids: string[];
-  source: string;
 }
 
 interface AlertState {
@@ -38,7 +37,6 @@ export default function EventRegisterPage() {
     phone: "",
     institution: "",
     event_ids: [],
-    source: "website",
   });
 
   useEffect(() => {
@@ -93,7 +91,7 @@ export default function EventRegisterPage() {
       setAlert({ show: true, message: "Successfully registered!", type: "success" });
       setForm({
         name: "", email: "", phone: "", institution: "",
-        event_ids: [], source: "website"
+        event_ids: []
       });
     } catch (err: any) {
       setAlert({ show: true, message: err.message, type: "error" });
@@ -123,7 +121,10 @@ export default function EventRegisterPage() {
               src="/TsLogo.png" 
               alt="Logo" 
               width={140} 
-              height={50} 
+              height={50}
+              priority 
+              // Use 'style' to ensure aspect ratio is preserved without console warnings
+              style={{ width: 'auto', height: 'auto' }} 
               className="object-contain md:order-2" // Order-2 moves logo to the right on desktop
             />
             <div className="md:order-1">
